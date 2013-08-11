@@ -31,10 +31,10 @@ import java.io.File;
 import java.util.HashSet;
 import java.util.List;
 
-public class FileManager {
+class FileManager {
 
-    private PlayerDataRemover instance;
-    private HashSet<File> playerDataFolders;
+    private final PlayerDataRemover instance;
+    private final HashSet<File> playerDataFolders;
 
     public FileManager(PlayerDataRemover plugin) {
         this.instance = plugin;
@@ -53,16 +53,14 @@ public class FileManager {
 
     private File getDataFolder(String worldName) {
         File worldFolder = new File(instance.getServer().getWorldContainer().getPath() + File.separatorChar + worldName);
-        File playerDataFolder = new File(worldFolder.getPath() + File.separatorChar + "players");
-        return playerDataFolder;
+        return new File(worldFolder.getPath() + File.separatorChar + "players");
     }
 
     private File getPlayerFile(File dataFolder, String playerName) {
-        File playerDataFile = new File(dataFolder.getPath() + File.separatorChar + playerName + ".dat");
-        return playerDataFile;
+        return new File(dataFolder.getPath() + File.separatorChar + playerName + ".dat");
     }
 
-    public void removePlayerFile(String playerName) {
+    void removePlayerFile(String playerName) {
         for (File file : playerDataFolders) {
             File playerFile = getPlayerFile(file, playerName);
             playerFile.delete();

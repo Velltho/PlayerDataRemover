@@ -29,9 +29,9 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerQuitEvent;
 
-public class PlayerListener implements Listener {
+class PlayerListener implements Listener {
 
-    private FileManager fileManager;
+    private final FileManager fileManager;
 
     public PlayerListener(FileManager fileManager) {
         this.fileManager = fileManager;
