@@ -1,0 +1,5 @@
+#PlayerDataRemover Configuration Version 1.0
+enabled-worlds:
+     - world
+     - world_nether
+     - world_the_end

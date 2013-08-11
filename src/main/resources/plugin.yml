@@ -1,0 +1,5 @@
+name: ${name}
+version: ${version}
+description: A plugin to remove player.dat on quit.
+author: Lanky_Lord
+main: net.lankylord.playerdataremover.PlayerDataRemover
