@@ -28,6 +28,7 @@ package net.lankylord.playerdataremover;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.event.player.PlayerKickEvent;
 
 class PlayerListener implements Listener {
 
@@ -39,6 +40,11 @@ class PlayerListener implements Listener {
 
     @EventHandler
     public void onPlayerQuit(PlayerQuitEvent e) {
-        fileManager.removePlayerAsyncDelayed(e.getPlayer().getName());
+        fileManager.removePlayerAsyncDelayed(e.getPlayer().getUniqueId());
+    }
+    
+    @EventHandler
+    public void onPlayerKick(PlayerKickEvent e) {
+        fileManager.removePlayerAsyncDelayed(e.getPlayer().getUniqueId());
     }
 }

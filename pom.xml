@@ -4,17 +4,17 @@
     <groupId>net.lankylord</groupId>
     <artifactId>PlayerDataRemover</artifactId>
     <packaging>jar</packaging>
-    <version>1.0</version>
+    <version>1.1</version>
     <name>PlayerDataRemover</name>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.build.number>DEV</project.build.number>
     </properties>
     <repositories>
-        <!-- Bukkit Repository -->
+        <!-- Spigot Repository -->
         <repository>
-            <id>bukkit-repo</id>
-            <url>http://repo.bukkit.org/content/groups/public/</url>
+            <id>spigot-repo</id>
+            <url>https://hub.spigotmc.org/nexus/content/groups/public/</url>
         </repository>
         <repository>
             <id>mcstats</id>
@@ -74,7 +74,7 @@
         <dependency>
             <groupId>org.bukkit</groupId>
             <artifactId>bukkit</artifactId>
-            <version>1.6.2-R0.1-SNAPSHOT</version>
+            <version>1.8.8-R0.1-SNAPSHOT</version>
             <type>jar</type>
         </dependency>
         <!-- Metrics -->

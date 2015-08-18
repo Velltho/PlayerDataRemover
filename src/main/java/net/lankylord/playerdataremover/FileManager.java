@@ -30,6 +30,7 @@ import org.bukkit.scheduler.BukkitTask;
 import java.io.File;
 import java.util.HashSet;
 import java.util.List;
+import java.util.UUID;
 
 class FileManager {
 
@@ -53,25 +54,25 @@ class FileManager {
 
     private File getDataFolder(String worldName) {
         File worldFolder = new File(instance.getServer().getWorldContainer().getPath() + File.separatorChar + worldName);
-        return new File(worldFolder.getPath() + File.separatorChar + "players");
+        return new File(worldFolder.getPath() + File.separatorChar + "playerdata");
     }
 
-    private File getPlayerFile(File dataFolder, String playerName) {
-        return new File(dataFolder.getPath() + File.separatorChar + playerName + ".dat");
+    private File getPlayerFile(File dataFolder, UUID playerUUID) {
+        return new File(dataFolder.getPath() + File.separatorChar + playerUUID.toString() + ".dat");
     }
 
-    void removePlayerFile(String playerName) {
+    void removePlayerFile(UUID playerUUID) {
         for (File file : playerDataFolders) {
-            File playerFile = getPlayerFile(file, playerName);
+            File playerFile = getPlayerFile(file, playerUUID);
             playerFile.delete();
         }
     }
 
-    public void removePlayerAsyncDelayed(final String playerName) {
+    public void removePlayerAsyncDelayed(final UUID playerUUID) {
         BukkitTask bukkitTask = instance.getServer().getScheduler().runTaskLaterAsynchronously(instance, new Runnable() {
             @Override
             public void run() {
-                removePlayerFile(playerName);
+                removePlayerFile(playerUUID);
             }
         }, 60L);
     }
